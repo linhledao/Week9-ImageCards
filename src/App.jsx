@@ -1,5 +1,5 @@
-import { useState } from 'react'
-import './App.css'
+import { useState } from 'react';
+import './App.css';
 import Card from "./ImageCard";
 
 function App() {
@@ -50,26 +50,31 @@ function App() {
 
   const gridStyle = {
     display: "grid",
-    gridTemplateColumns: "repeat(3, 1fr)",
+    gridTemplateColumns: "repeat(3, 1fr)", // exactly 3 columns
     gap: "20px",
-    maxWidth: "1200px",
-    margin: "0 auto",
+    maxWidth: "1000px",    // adjust so 3 cards fit nicely
+    margin: "0 auto",      // centers the whole grid
     padding: "20px",
+    textAlign: "center"
   };
 
+
   return (
-    <div style={gridStyle}>
-      {images.map((item, index) => (
-        <Card
-          key={index}
-          image={item.image}
-          title={item.title}
-          comment={item.comment}
-          author={item.author}
-          date={item.date}
-        />
-      ))}
-    </div>
+    <>
+      <h1 style={{ textAlign: "center" }}>Image Gallery</h1>
+      <div style={gridStyle}>
+        {images.map((item, index) => (
+          <Card
+            key={index}
+            image={item.image}
+            title={item.title}
+            comment={item.comment}
+            author={item.author}
+            date={item.date}
+          />
+        ))}
+      </div>
+    </>
   );
 }
 
